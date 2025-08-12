@@ -23,7 +23,7 @@ jobs:
   Tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Prepare Workspace
         uses: Songoda-Plugins/GH-Commons/.github/actions/setup_workspace@main
 
@@ -36,7 +36,7 @@ jobs:
     needs: [ Tests ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 # TODO: Make sure the project doesn't need additional setup steps or change the action to your own.
       - name: Prepare Workspace
         uses: Songoda-Plugins/GH-Commons/.github/actions/setup_workspace@main
@@ -105,7 +105,7 @@ jobs:
     if: ${{ always() && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/development' || github.ref_type == 'tag') }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Notify Webhook
         uses: Songoda-Plugins/GH-Commons/.github/actions/discord_send_job_results@master
         with:
